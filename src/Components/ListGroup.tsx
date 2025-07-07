@@ -2,8 +2,9 @@ import { useState } from "react";
 interface Props {
   dogs: string[];
   heading: string;
+  onSelectDog: (dog: string) => void;
 }
-function ListGroup({dogs, heading}: Props) {
+function ListGroup({ dogs, heading, onSelectDog }: Props) {
   const [selectedIndex, selectedStateIndex] = useState(-1);
 
   return (
@@ -21,6 +22,7 @@ function ListGroup({dogs, heading}: Props) {
             key={dog}
             onClick={() => {
               selectedStateIndex(index);
+              onSelectDog(dog);
             }}
           >
             {dog}
